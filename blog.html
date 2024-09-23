@@ -1,0 +1,77 @@
+<!DOCTYPE html >
+<html lang="en"data-theme ='light'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blog page</title>
+    <!-- lexend google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- daisy and tailwind -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#B4F461',
+                        navColor: '#F9F7F3',
+                    },
+                    fontFamily: {
+                        lexend: "Lexend",
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <header class="bg-navColor">
+
+        <nav class="w-11/12 mx-auto flex flex-col md:flex-row justify-between items-center text-xl pt-7 pb-10">
+
+            <button class="font-semibold bg-primary px-6 py-2 rounded-lg">Blog</button>
+
+            <h1 class="flex items-center gap-3 font-semibold "><img src="./assets/logo.png" alt=""
+                    class="h-12 w-12">Donate Bangladesh</h1>
+
+            <h2 class="flex items-center gap-3 font-medium"><img src="./assets/coin.png" alt=""><span
+                    class="opacity-60">5500</span>
+                <span class="opacity-60">BDT</span>
+            </h2>
+
+        </nav>
+
+    </header>
+    <main>
+        <div class="p-5 md:p-10 space-y-5">
+            <div class="space-y-3 border rounded-lg p-4">
+                <p class="text-xl font-bold">a. What is the Document Object Model (DOM)?</p>
+                <p class="">DOM (Document Object Model) is a programming interface for web documents, representing the structure of a webpage in a tree-like format. Each node in the tree represents a part of the document, such as elements, attributes, and text. The DOM allows scripts, like JavaScript, to dynamically access and modify the content, structure, and style of a document. </p>
+            </div>
+            <div class="space-y-3 border rounded-lg p-4">
+                <p class="text-xl font-bold">b. How do you select an element from the DOM?</p>
+                <p class="">We can select an element from the DOM using JavaScript methods like getElementById(), getElementsByClassName(), getElementsByTagName(), querySelector(), and querySelectorAll(). For example, document.getElementById('myId') selects the element with the ID "myId". The querySelector() method allows selecting the first matching element based on CSS selectors, such as document.querySelector('.myClass') for an element with the class "myClass". If we want to select multiple elements, querySelectorAll() returns a NodeList of all matching elements. Once selected, we can manipulate these elements, such as changing their content or styles.</p>
+            </div>
+            <div class="space-y-3 border rounded-lg p-4">
+                <p class="text-xl font-bold">c. What is event delegation in the context of the DOM, and why is it useful?
+                </p>
+                <p class="">Event delegation is a technique in the DOM where a single event listener is attached to a parent element to manage events for its child elements, even if those children are dynamically added later. Instead of adding individual event listeners to each child element, the parent captures events that bubble up from its descendants. </p>
+            </div>
+            <div class="space-y-3 border rounded-lg p-4">
+                <p class="text-xl font-bold">d. How do you manipulate an element's attributes and styles using the DOM?
+                </p>
+                <p class="">We can manipulate an element's attributes using methods like setAttribute() and removeAttribute(), or directly access properties like element.id or element.src. To change styles, we can modify the style property, such as element.style.color = 'red' or element.style.display = 'none'. This allows us to dynamically update the appearance and behavior of elements on the page.</p>
+            </div>
+        </div>
+    </main>
+   
+
+    <footer class="bg-navColor p-10">
+    </footer>
+</body>
+</html>
