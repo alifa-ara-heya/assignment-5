@@ -29,8 +29,11 @@ function calculateDonation(donateButtonId, donateInputId, balanceId, donationAmo
             alert('Your balance is insufficient');
             return;
         }
+
+        let donationAmount = getInnerNumberById(donationAmountId);
+        donationAmount += inputValue;
         const newBalance = balanceValue - inputValue;
-        document.getElementById(donationAmountId).innerText = inputValue;
+        document.getElementById(donationAmountId).innerText = donationAmount;
         document.getElementById(balanceId).innerText = newBalance;
         const causeText = document.getElementById(causeId).innerText;
         // console.log({inputValue, balanceValue, donationAmount});
