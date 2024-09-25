@@ -1,30 +1,32 @@
 // Function to get input value from an element by ID and convert it to a float
 function getInputValueById(id) {
-    return parseFloat(document.getElementById(id).value);
+    const value = Number(document.getElementById(id).value);
+    return value;
 }
 
 // Function to get the inner text of an element by ID and convert it to a float
 function getInnerNumberById(id) {
-    return parseFloat(document.getElementById(id).innerText);
+    const value = Number(document.getElementById(id).innerText);
+    return value;
 }
 
 // function to calculate the donation
 function calculateDonation(donateButtonId, donateInputId, balanceId, donationAmountId, causeId) {
 
-
     document.getElementById(donateButtonId).addEventListener('click', function () {
         const inputValue = getInputValueById(donateInputId);
 
+        // validating for invalid input
         if (inputValue <= 0 || isNaN(inputValue)) {
             document.getElementById(donateInputId).value = "";
             alert('Please enter a valid donation amount.');
             return;
         }
 
-
         const balanceValue = getInnerNumberById(balanceId);
 
-        if(inputValue >= balanceValue){
+        // validating that the input is not greater than balance
+        if (inputValue >= balanceValue) {
             document.getElementById(donateInputId).value = "";
             alert('Your balance is insufficient');
             return;
@@ -33,8 +35,8 @@ function calculateDonation(donateButtonId, donateInputId, balanceId, donationAmo
         let donationAmount = getInnerNumberById(donationAmountId);
         donationAmount += inputValue;
         const newBalance = balanceValue - inputValue;
-        document.getElementById(donationAmountId).innerText = donationAmount;
-        document.getElementById(balanceId).innerText = newBalance;
+        document.getElementById(donationAmountId).innerText = donationAmount.toFixed(2);
+        document.getElementById(balanceId).innerText = newBalance.toFixed(2);
         const causeText = document.getElementById(causeId).innerText;
         // console.log({inputValue, balanceValue, donationAmount});
 
@@ -51,15 +53,10 @@ function calculateDonation(donateButtonId, donateInputId, balanceId, donationAmo
 
         document.getElementById(donateInputId).value = "";
 
-
         // daisyui modal
         document.getElementById('congrats').showModal();
-
-        
     })
 }
-
-
 
 
 // function to add hidden
@@ -97,9 +94,7 @@ document.getElementById('donation-tab').addEventListener('click', function () {
 })
 
 
-
-
 // making the blog button open to another page
-document.getElementById('blog-btn').addEventListener('click', function () {    
+document.getElementById('blog-btn').addEventListener('click', function () {
     window.location.href = "./blog.html"
 })
